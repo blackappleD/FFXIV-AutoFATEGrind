@@ -55,7 +55,7 @@ public sealed class AppWindow : Window, IDisposable
     private IDisposable? chrome;
     private IDisposable? bodyFont;
 
-    public AppWindow(Plugin plugin) : base("Auto FATE Grind###AutoFateGrindMain", BaseFlags)
+    public AppWindow(Plugin plugin) : base("FATE 助手###AutoFateGrindMain", BaseFlags)
     {
         this.plugin = plugin;
         Size = DefaultSize;

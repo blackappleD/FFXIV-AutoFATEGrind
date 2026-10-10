@@ -750,7 +750,7 @@
   "settings.humanizer.combatMovementEnable": "Variar las esquivas en combate",
   "settings.humanizer.combatMovementEnableHelp": "BossMod sale de un área de efecto en cuanto se anuncia y se queda justo en su borde, así que todos los usuarios de AFG en un FATE esquivan en el mismo instante hacia el mismo punto. Si está activado, cada FATE sortea un retraso de esquiva, un retraso de movimiento y una preferencia de margen extra dentro de los rangos de abajo. Tu preset de combate nunca se modifica.",
   "settings.humanizer.combatMovementOff": "La variación del movimiento en combate está desactivada. BossMod esquiva según tu preset de combate.",
-  "settings.humanizer.combatMovementNoModule": "El preset de combate '{0}' no tiene el módulo Automatic movement (AI), así que estos ajustes no hacen nada. Añade ese módulo al preset en BossMod o vuelve al preset Auto FATE Grind incluido.",
+  "settings.humanizer.combatMovementNoModule": "El preset de combate '{0}' no tiene el módulo Automatic movement (AI), así que estos ajustes no hacen nada. Añade ese módulo al preset en BossMod o vuelve al preset FATE 助手 incluido.",
   "settings.humanizer.dodgeDelay": "Retraso de esquiva",
   "settings.humanizer.dodgeDelayHelp": "Cuánto espera BossMod antes de salir de un área de efecto anunciada. Se sortea un valor por FATE dentro de este rango. Retrasos más largos implican más golpes recibidos, más muertes y más FATE añadidos automáticamente a la lista negra por muertes. Los lanzadores también pueden ver más hechizos cancelados.",
   "settings.humanizer.moveDelay": "Retraso de movimiento",
@@ -807,6 +807,6 @@
   "settings.gm.kill": "Cerrar el juego a la fuerza",
   "settings.gm.killHelp": "Termina el proceso del juego de forma brusca mediante /xlkill. La opción de último recurso; sin despedidas, sin cinemática, sin cerrar sesión. Te desconectará.",
   "settings.gm.noCommands": "No hay comandos en cola.",
-  "plugin.commandHelp": "Muestra u oculta la ventana de Auto FATE Grind. /afg start | stop | stop soft (termina primero el FATE actual) | run <número> (para tras esa cantidad de FATE) | pause | config | stats | deps | log | changelog | about | target.",
+  "plugin.commandHelp": "Muestra u oculta la ventana de FATE 助手. /afg start | stop | stop soft (termina primero el FATE actual) | run <número> (para tras esa cantidad de FATE) | pause | config | stats | deps | log | changelog | about | target.",
   "plugin.commandHelpAlias": "Alias de /afg."
 }

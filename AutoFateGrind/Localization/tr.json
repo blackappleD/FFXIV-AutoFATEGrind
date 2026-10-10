@@ -750,7 +750,7 @@
   "settings.humanizer.combatMovementEnable": "Savaşta kaçınmayı çeşitlendir",
   "settings.humanizer.combatMovementEnableHelp": "BossMod bir AoE belirdiği anda alanın dışına çıkar ve tam kenarında durur, bu yüzden bir FATE'teki tüm AFG kullanıcıları aynı anda aynı noktaya kaçar. Açıkken her FATE, aşağıdaki aralıklardan bir kaçınma gecikmesi, bir hareket gecikmesi ve ek pay tercihi seçer. Savaş ön ayarının kendisi asla değiştirilmez.",
   "settings.humanizer.combatMovementOff": "Savaşta hareket çeşitlendirmesi kapalı. BossMod, savaş ön ayarında ayarlandığı gibi kaçınır.",
-  "settings.humanizer.combatMovementNoModule": "'{0}' savaş ön ayarında Automatic movement (AI) modülü yok, bu yüzden bu ayarların etkisi olmaz. Bu modülü BossMod'da ön ayara ekleyin veya paketle gelen Auto FATE Grind ön ayarına geri dönün.",
+  "settings.humanizer.combatMovementNoModule": "'{0}' savaş ön ayarında Automatic movement (AI) modülü yok, bu yüzden bu ayarların etkisi olmaz. Bu modülü BossMod'da ön ayara ekleyin veya paketle gelen FATE 助手 ön ayarına geri dönün.",
   "settings.humanizer.dodgeDelay": "Kaçınma gecikmesi",
   "settings.humanizer.dodgeDelayHelp": "BossMod'un belirlenmiş bir AoE'den çıkmadan önce ne kadar beklediği. Her FATE için bu aralıktan bir değer seçilir. Daha uzun gecikmeler daha fazla isabet, daha fazla ölüm ve ölümler yüzünden otomatik kara listeye alınan daha fazla FATE demektir. Büyücülerin büyüleri de daha sık iptal olabilir.",
   "settings.humanizer.moveDelay": "Hareket gecikmesi",
@@ -807,6 +807,6 @@
   "settings.gm.kill": "Oyunu kapat",
   "settings.gm.killHelp": "Oyun sürecini /xlkill ile sert biçimde sonlandırır. Son çare seçeneği; vedalaşma, ara sahne ya da çıkış yok. Bağlantınız kopar.",
   "settings.gm.noCommands": "Sırada komut yok.",
-  "plugin.commandHelp": "Auto FATE Grind penceresini aç/kapat. /afg start | stop | stop soft (önce mevcut FATE'i bitirir) | run <sayı> (o kadar FATE'den sonra durur) | pause | config | stats | deps | log | changelog | about | target.",
+  "plugin.commandHelp": "FATE 助手 penceresini aç/kapat. /afg start | stop | stop soft (önce mevcut FATE'i bitirir) | run <sayı> (o kadar FATE'den sonra durur) | pause | config | stats | deps | log | changelog | about | target.",
   "plugin.commandHelpAlias": "/afg için kısayol."
 }

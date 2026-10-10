@@ -20,5 +20,8 @@ internal static class DefaultCombatPreset
 
     private static string? cached;
 
-    public static string GetSerialized() => cached ??= Base64Brotli.FromBase64();
+    // Fork: the embedded preset keeps upstream's name; rename it on decode so the blob merges cleanly from upstream.
+    private const string UpstreamNameField = "\"Name\": \"Auto FATE Grind\"";
+
+    public static string GetSerialized() => cached ??= Base64Brotli.FromBase64().Replace(UpstreamNameField, $"\"Name\": \"{Name}\"");
 }

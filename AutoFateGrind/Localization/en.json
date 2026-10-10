@@ -750,7 +750,7 @@
   "settings.humanizer.combatMovementEnable": "Vary dodging in combat",
   "settings.humanizer.combatMovementEnableHelp": "BossMod steps out of an AoE the moment it is telegraphed and stops right at its edge, so every AFG user in a FATE dodges on the same frame to the same spot. When on, each FATE rolls a dodge delay, a movement delay and a preference for extra room from the ranges below. Your combat preset itself is never changed.",
   "settings.humanizer.combatMovementOff": "Combat movement variation is off. BossMod dodges the way your combat preset is set up.",
-  "settings.humanizer.combatMovementNoModule": "The combat preset '{0}' has no Automatic movement (AI) module, so these settings do nothing. Add that module to the preset in BossMod, or switch back to the bundled Auto FATE Grind preset.",
+  "settings.humanizer.combatMovementNoModule": "The combat preset '{0}' has no Automatic movement (AI) module, so these settings do nothing. Add that module to the preset in BossMod, or switch back to the bundled FATE 助手 preset.",
   "settings.humanizer.dodgeDelay": "Dodge delay",
   "settings.humanizer.dodgeDelayHelp": "How long BossMod waits before stepping out of a telegraphed AoE. One value is rolled per FATE from this range. Longer delays mean getting hit more often, more deaths, and more FATEs auto-blacklisted for deaths. Casters may also see more hard casts cancelled.",
   "settings.humanizer.moveDelay": "Movement delay",
@@ -807,6 +807,6 @@
   "settings.gm.kill": "Kill the game",
   "settings.gm.killHelp": "Hard-terminate the game process via /xlkill. The last-resort option; no goodbyes, no cutscene, no logout. You'll get a disconnect.",
   "settings.gm.noCommands": "No commands queued.",
-  "plugin.commandHelp": "Toggle the Auto FATE Grind window. /afg start | stop | stop soft (finish the current FATE first) | run <count> (stop after that many FATEs) | pause | config | stats | deps | log | changelog | about | target.",
+  "plugin.commandHelp": "Toggle the FATE 助手 window. /afg start | stop | stop soft (finish the current FATE first) | run <count> (stop after that many FATEs) | pause | config | stats | deps | log | changelog | about | target.",
   "plugin.commandHelpAlias": "Alias for /afg."
 }

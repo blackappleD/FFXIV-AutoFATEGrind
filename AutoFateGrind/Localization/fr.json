@@ -750,7 +750,7 @@
   "settings.humanizer.combatMovementEnable": "Varier les esquives en combat",
   "settings.humanizer.combatMovementEnableHelp": "BossMod sort d'une zone d'effet dès qu'elle est annoncée et s'arrête juste à son bord, donc tous les utilisateurs d'AFG d'un ALÉA esquivent au même instant vers le même endroit. Si activé, chaque ALÉA tire un délai d'esquive, un délai de déplacement et une préférence de marge supplémentaire dans les plages ci-dessous. Votre préréglage de combat n'est jamais modifié.",
   "settings.humanizer.combatMovementOff": "La variation des déplacements en combat est désactivée. BossMod esquive selon votre préréglage de combat.",
-  "settings.humanizer.combatMovementNoModule": "Le préréglage de combat '{0}' n'a pas de module Automatic movement (AI), ces réglages n'ont donc aucun effet. Ajoutez ce module au préréglage dans BossMod, ou revenez au préréglage Auto FATE Grind fourni.",
+  "settings.humanizer.combatMovementNoModule": "Le préréglage de combat '{0}' n'a pas de module Automatic movement (AI), ces réglages n'ont donc aucun effet. Ajoutez ce module au préréglage dans BossMod, ou revenez au préréglage FATE 助手 fourni.",
   "settings.humanizer.dodgeDelay": "Délai d'esquive",
   "settings.humanizer.dodgeDelayHelp": "Temps d'attente de BossMod avant de sortir d'une zone d'effet annoncée. Une valeur est tirée par ALÉA dans cette plage. Des délais plus longs signifient plus de coups reçus, plus de morts et plus d'ALÉA mis automatiquement sur liste noire pour décès. Les lanceurs de sorts peuvent aussi voir plus de sorts interrompus.",
   "settings.humanizer.moveDelay": "Délai de déplacement",
@@ -807,6 +807,6 @@
   "settings.gm.kill": "Fermer le jeu de force",
   "settings.gm.killHelp": "Termine brutalement le processus du jeu via /xlkill. L'option de dernier recours ; pas d'au revoir, pas de cinématique, pas de déconnexion propre. Vous serez déconnecté.",
   "settings.gm.noCommands": "Aucune commande enregistrée.",
-  "plugin.commandHelp": "Affiche ou masque la fenêtre d'Auto FATE Grind. /afg start | stop | stop soft (termine d'abord l'ALÉA en cours) | run <nombre> (s'arrête après ce nombre d'ALÉA) | pause | config | stats | deps | log | changelog | about | target.",
+  "plugin.commandHelp": "Affiche ou masque la fenêtre d'FATE 助手. /afg start | stop | stop soft (termine d'abord l'ALÉA en cours) | run <nombre> (s'arrête après ce nombre d'ALÉA) | pause | config | stats | deps | log | changelog | about | target.",
   "plugin.commandHelpAlias": "Alias de /afg."
 }

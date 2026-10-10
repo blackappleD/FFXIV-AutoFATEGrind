@@ -750,7 +750,7 @@
   "settings.humanizer.combatMovementEnable": "战斗中随机化躲避",
   "settings.humanizer.combatMovementEnableHelp": "BossMod 会在 AoE 读条出现的瞬间走出范围，并停在范围边缘，因此同一个 FATE 里的所有 AFG 用户会在同一帧躲到同一个位置。开启后，每个 FATE 会从下方的范围中随机抽取躲避延迟、移动延迟和额外留空偏好。不会修改你的战斗预设本身。",
   "settings.humanizer.combatMovementOff": "战斗移动随机化已关闭。BossMod 按你的战斗预设原样躲避。",
-  "settings.humanizer.combatMovementNoModule": "战斗预设“{0}”中没有 Automatic movement (AI) 模块，因此这些设置不会生效。请在 BossMod 中为该预设添加此模块，或切换回自带的 Auto FATE Grind 预设。",
+  "settings.humanizer.combatMovementNoModule": "战斗预设“{0}”中没有 Automatic movement (AI) 模块，因此这些设置不会生效。请在 BossMod 中为该预设添加此模块，或切换回自带的“FATE 助手”预设。",
   "settings.humanizer.dodgeDelay": "躲避延迟",
   "settings.humanizer.dodgeDelayHelp": "BossMod 在走出已读条的 AoE 之前等待的时间。每个 FATE 会从此范围中随机抽取一个值。延迟越长越容易被击中、死亡次数越多，也会有更多 FATE 因死亡被自动加入黑名单。读条职业的读条也可能更常被打断。",
   "settings.humanizer.moveDelay": "移动延迟",
@@ -807,6 +807,6 @@
   "settings.gm.kill": "强制关闭游戏",
   "settings.gm.killHelp": "通过 /xlkill 强制终止游戏进程。最后手段；没有告别、没有过场、没有登出，你会直接掉线。",
   "settings.gm.noCommands": "没有命令。",
-  "plugin.commandHelp": "切换 Auto FATE Grind 窗口。/afg start | stop | stop soft（先完成当前FATE）| run <数量>（完成该数量的FATE后停止）| pause | config | stats | deps | log | changelog | about | target。",
+  "plugin.commandHelp": "切换 FATE 助手窗口。/afg start | stop | stop soft（先完成当前FATE）| run <数量>（完成该数量的FATE后停止）| pause | config | stats | deps | log | changelog | about | target。",
   "plugin.commandHelpAlias": "/afg 的别名。"
 }

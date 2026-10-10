@@ -13,7 +13,7 @@ namespace AutoFateGrind.Windows.Shell;
 
 internal static class HeaderBar
 {
-    private const string Title = "Auto FATE Grind";
+    private const string Title = "FATE 助手";
     private const float PadX = 16f;
     private const float IconBox = 26f;
     private const float ButtonSize = 30f;

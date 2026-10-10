@@ -834,7 +834,7 @@ internal static class L
         public static readonly LocString CombatMovementEnable = new("settings.humanizer.combatMovementEnable", "Vary dodging in combat");
         public static readonly LocString CombatMovementEnableHelp = new("settings.humanizer.combatMovementEnableHelp", "BossMod steps out of an AoE the moment it is telegraphed and stops right at its edge, so every AFG user in a FATE dodges on the same frame to the same spot. When on, each FATE rolls a dodge delay, a movement delay and a preference for extra room from the ranges below. Your combat preset itself is never changed.");
         public static readonly LocString CombatMovementOff = new("settings.humanizer.combatMovementOff", "Combat movement variation is off. BossMod dodges the way your combat preset is set up.");
-        public static readonly LocString CombatMovementNoModule = new("settings.humanizer.combatMovementNoModule", "The combat preset '{0}' has no Automatic movement (AI) module, so these settings do nothing. Add that module to the preset in BossMod, or switch back to the bundled Auto FATE Grind preset.");
+        public static readonly LocString CombatMovementNoModule = new("settings.humanizer.combatMovementNoModule", "The combat preset '{0}' has no Automatic movement (AI) module, so these settings do nothing. Add that module to the preset in BossMod, or switch back to the bundled FATE 助手 preset.");
         public static readonly LocString DodgeDelay = new("settings.humanizer.dodgeDelay", "Dodge delay");
         public static readonly LocString DodgeDelayHelp = new("settings.humanizer.dodgeDelayHelp", "How long BossMod waits before stepping out of a telegraphed AoE. One value is rolled per FATE from this range. Longer delays mean getting hit more often, more deaths, and more FATEs auto-blacklisted for deaths. Casters may also see more hard casts cancelled.");
         public static readonly LocString MoveDelay = new("settings.humanizer.moveDelay", "Movement delay");
@@ -897,7 +897,7 @@ internal static class L
 
     internal static class Plugin
     {
-        public static readonly LocString CommandHelp = new("plugin.commandHelp", "Toggle the Auto FATE Grind window. /afg start | stop | stop soft (finish the current FATE first) | run <count> (stop after that many FATEs) | pause | config | stats | deps | log | changelog | about | target.");
+        public static readonly LocString CommandHelp = new("plugin.commandHelp", "Toggle the FATE 助手 window. /afg start | stop | stop soft (finish the current FATE first) | run <count> (stop after that many FATEs) | pause | config | stats | deps | log | changelog | about | target.");
         public static readonly LocString CommandHelpAlias = new("plugin.commandHelpAlias", "Alias for /afg.");
     }
 }

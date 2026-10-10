@@ -750,7 +750,7 @@
   "settings.humanizer.combatMovementEnable": "戦闘中の回避にばらつきを付ける",
   "settings.humanizer.combatMovementEnableHelp": "BossModは範囲攻撃の予兆が出た瞬間に範囲外へ出て、その縁で止まります。そのため同じFATEにいるAFGユーザー全員が同じフレームで同じ場所へ回避します。オンにすると、FATEごとに回避遅延・移動遅延・余裕の好みを下の範囲からランダムに決めます。戦闘プリセット自体は変更されません。",
   "settings.humanizer.combatMovementOff": "戦闘中の移動のばらつきはオフです。BossModは戦闘プリセットの設定どおりに回避します。",
-  "settings.humanizer.combatMovementNoModule": "戦闘プリセット「{0}」にAutomatic movement (AI)モジュールがないため、これらの設定は効果がありません。BossModでプリセットにこのモジュールを追加するか、同梱のAuto FATE Grindプリセットに戻してください。",
+  "settings.humanizer.combatMovementNoModule": "戦闘プリセット「{0}」にAutomatic movement (AI)モジュールがないため、これらの設定は効果がありません。BossModでプリセットにこのモジュールを追加するか、同梱のFATE 助手プリセットに戻してください。",
   "settings.humanizer.dodgeDelay": "回避遅延",
   "settings.humanizer.dodgeDelayHelp": "予兆が出た範囲攻撃から出るまでBossModが待つ時間です。FATEごとにこの範囲から値を1つ決めます。長いほど被弾や戦闘不能が増え、戦闘不能による自動ブラックリスト入りも増えます。キャスターは詠唱が中断されやすくなることもあります。",
   "settings.humanizer.moveDelay": "移動遅延",
@@ -807,6 +807,6 @@
   "settings.gm.kill": "ゲームを強制終了",
   "settings.gm.killHelp": "/xlkill でゲームプロセスを強制終了します。最終手段です。挨拶もカットシーンもログアウトもなく、切断されます。",
   "settings.gm.noCommands": "コマンドはありません。",
-  "plugin.commandHelp": "Auto FATE Grindのウィンドウを切り替えます。/afg start | stop | stop soft（現在のFATEを終えてから停止）| run <件数>（その件数のFATE後に停止）| pause | config | stats | deps | log | changelog | about | target",
+  "plugin.commandHelp": "FATE 助手のウィンドウを切り替えます。/afg start | stop | stop soft（現在のFATEを終えてから停止）| run <件数>（その件数のFATE後に停止）| pause | config | stats | deps | log | changelog | about | target",
   "plugin.commandHelpAlias": "/afg の別名です。"
 }
