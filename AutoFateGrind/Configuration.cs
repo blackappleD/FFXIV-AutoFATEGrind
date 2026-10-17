@@ -87,8 +87,7 @@ public sealed class Configuration : IPluginConfiguration
     // Tanks only: AFG tags every idle FATE mob in reach before BossMod fights the pack.
     public bool PullAsManyAsPossible { get; set; } = false;
     public int PullReachMeters { get; set; } = 25;
-    public int PullMaxMobs { get; set; } = 20;
-    // Pulling stops below the first and resumes at the second; the resume point never sits below the stop point.
+    public int PullMaxMobs { get; set; } = 10;
     public int PullStopHpPercent { get; set; } = 50;
     public int PullResumeHpPercent { get; set; } = 70;
 

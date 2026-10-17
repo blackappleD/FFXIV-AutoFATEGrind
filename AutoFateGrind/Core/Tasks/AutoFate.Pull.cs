@@ -23,6 +23,8 @@ public sealed partial class AutoFate
 
     private const int   PullTagTimeoutMs = 8_000;
     private const int   PullSkipMs = 30_000;
+    // A pick that times out this often is out of reach (behind a wall, on a ledge); it stays skipped until the FATE ends.
+    private const int   PullMaxTimeoutsPerTarget = 2;
     private const int   PullScanIntervalMs = 1_000;
     private const int   PullActionRetryMs = 500;
     private const int   PullSetupRetryMs = 60_000;
@@ -44,8 +46,17 @@ public sealed partial class AutoFate
         [37] = "BossMod.Autorotation.xan.GNB",
     };
 
+    private static readonly string[] TankRotationModuleNames =
+    [
+        "BossMod.Autorotation.xan.PLD",
+        "BossMod.Autorotation.xan.DRK",
+        "BossMod.Autorotation.xan.GNB",
+    ];
+
     private readonly Dictionary<ulong, long> pullSkippedUntilMs = [];
+    private readonly Dictionary<ulong, int> pullTimeouts = [];
     private readonly List<ulong> pullExpiredSkips = [];
+    private bool    pullOverridesApplied;
     private bool    pullActive;
     private bool    pullHpLow;
     private string? pullRotationModule;
@@ -55,6 +66,9 @@ public sealed partial class AutoFate
     private long    pullNextActionMs;
     private int     pullTagged;
     private bool    pullSetupFailureLogged;
+    private ulong   pullStatusTargetId;
+    private int     pullStatusOnPlayer = -1;
+    private int     pullStatusCandidates = -1;
 
     private static bool PullAllowed()
         => Plugin.Cfg.PullAsManyAsPossible
@@ -129,8 +143,22 @@ public sealed partial class AutoFate
             Svc.Targets.Target = next;
             FirePullAction(player, next, now);
         }
-        Status = $"Pulling {fate.Name} ({survey.OnPlayer} on you, {survey.Candidates} more in reach)";
+        UpdatePullStatus(fate, survey);
         return true;
+    }
+
+    private void UpdatePullStatus(PublicEvent fate, in FatePullSurvey survey)
+    {
+        if (survey.Next.GameObjectId == pullStatusTargetId
+         && survey.OnPlayer == pullStatusOnPlayer
+         && survey.Candidates == pullStatusCandidates)
+        {
+            return;
+        }
+        pullStatusTargetId = survey.Next.GameObjectId;
+        pullStatusOnPlayer = survey.OnPlayer;
+        pullStatusCandidates = survey.Candidates;
+        Status = $"Pulling {fate.Name} ({survey.OnPlayer} on you, {survey.Candidates} more in reach)";
     }
 
     // True while the current pick still needs tagging; false once it is on the character or out of the picture.
@@ -149,8 +177,18 @@ public sealed partial class AutoFate
 
         if (now - pullTargetSinceMs > PullTagTimeoutMs)
         {
-            Diag($"Pull target {pullTargetId:X} of FATE {fateId} still untagged after {PullTagTimeoutMs / 1000}s; skipping it for {PullSkipMs / 1000}s");
-            pullSkippedUntilMs[pullTargetId] = now + PullSkipMs;
+            var timeouts = pullTimeouts.GetValueOrDefault(pullTargetId) + 1;
+            pullTimeouts[pullTargetId] = timeouts;
+            if (timeouts >= PullMaxTimeoutsPerTarget)
+            {
+                Diag($"Pull target {pullTargetId:X} of FATE {fateId} still untagged after {PullTagTimeoutMs / 1000}s again; skipping it for the rest of the FATE");
+                pullSkippedUntilMs[pullTargetId] = long.MaxValue;
+            }
+            else
+            {
+                Diag($"Pull target {pullTargetId:X} of FATE {fateId} still untagged after {PullTagTimeoutMs / 1000}s; skipping it for {PullSkipMs / 1000}s");
+                pullSkippedUntilMs[pullTargetId] = now + PullSkipMs;
+            }
             pullTargetId = 0;
             return false;
         }
@@ -210,6 +248,7 @@ public sealed partial class AutoFate
             pullRotationModule = module;
         }
 
+        pullOverridesApplied = true;
         pullActive = true;
         pullTagged = 0;
         pullTargetId = 0;
@@ -242,6 +281,9 @@ public sealed partial class AutoFate
         }
 
         pullNextScanMs = Environment.TickCount64 + PullScanIntervalMs;
+        pullStatusTargetId = 0;
+        pullStatusOnPlayer = -1;
+        pullStatusCandidates = -1;
         if (reason is not null)
         {
             Diag($"Pull in FATE {fateId} done after tagging {pullTagged}: {reason}; BossMod retargets and fights the pack");
@@ -272,7 +314,8 @@ public sealed partial class AutoFate
         }
     }
 
-    // Overrides live on BossMod's in-memory preset and outlast AFG, so every engage starts from a clean slate.
+    // Overrides live on BossMod's in-memory preset and outlast AFG, so an engage starts from a clean slate. Only a user
+    // with the toggle on, or one who just turned it off after a pull, can have any to clear.
     private void ResetPullOverrides(string preset)
     {
         pullActive = false;
@@ -282,15 +325,20 @@ public sealed partial class AutoFate
         pullNextScanMs = 0;
         pullNextActionMs = 0;
         pullTagged = 0;
+        pullStatusTargetId = 0;
+        pullStatusOnPlayer = -1;
+        pullStatusCandidates = -1;
         pullSkippedUntilMs.Clear();
+        pullTimeouts.Clear();
 
         var ipc = BossModIPC.Instance;
-        if (!ipc.CanClearTransientStrategy)
+        if (!(Plugin.Cfg.PullAsManyAsPossible || pullOverridesApplied) || !ipc.CanClearTransientStrategy)
         {
             return;
         }
+        pullOverridesApplied = false;
         ipc.ClearTransientStrategy(preset, AutoTargetModule, AutoTargetRetargetTrack);
-        foreach (var module in TankRotationModules.Values.Distinct())
+        foreach (var module in TankRotationModuleNames)
         {
             ipc.ClearTransientStrategy(preset, module, RotationTargetingTrack);
         }

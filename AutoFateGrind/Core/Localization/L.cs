@@ -627,8 +627,8 @@ internal static class L
         public static readonly LocString PullMany = new("settings.travel.pullMany", "Pull as many mobs as possible");
         public static readonly LocString PullManyHelp = new("settings.travel.pullManyHelp", "Tanks only. Instead of fighting whatever walks up, AFG tags every idle mob of the FATE in reach with your ranged attack, then lets BossMod AoE the pack down.");
         public static readonly LocString PullReach = new("settings.travel.pullReach", "Pull reach");
-        public static readonly LocString PullReachHelp = new("settings.travel.pullReachHelp", "Only idle mobs this close to you, and inside the FATE ring, are pulled. Tank ranged attacks reach 20y; farther mobs are walked to first.");
-        public static readonly LocString PullMaxMobs = new("settings.travel.pullMaxMobs", "Most mobs on you");
+        public static readonly LocString PullReachHelp = new("settings.travel.pullReachHelp", "Only idle mobs this close to you, and inside the FATE ring, are pulled. Tank ranged attacks reach 20 m; farther mobs are walked to first.");
+        public static readonly LocString PullMaxMobs = new("settings.travel.pullMaxMobs", "Max mobs on you");
         public static readonly LocString PullMaxMobsHelp = new("settings.travel.pullMaxMobsHelp", "Pulling stops once this many mobs have you on their enmity list, and picks up again as they die.");
         public static readonly LocString PullMaxMobsFormat = new("settings.travel.pullMaxMobsFormat", "%d mobs");
         public static readonly LocString PullStopHp = new("settings.travel.pullStopHp", "Stop pulling below HP");

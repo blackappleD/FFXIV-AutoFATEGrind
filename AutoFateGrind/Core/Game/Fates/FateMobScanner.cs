@@ -47,7 +47,12 @@ internal static unsafe class FateMobScanner
     private const float PullPackBonusMeters = 3f;
     private const float PullMaxVerticalMeters = 8f;
 
+    // UIState.Hater holds this many entries; the pull cap in the settings stops at the same number.
+    public const int EnmityListCapacity = 32;
+
     private static readonly List<IBattleNpc> pullCandidates = [];
+    private static readonly uint[] enmityIds = new uint[EnmityListCapacity];
+    private static int enmityCount;
 
     public static FateMobSurvey Survey(uint fateId, Vector3 from)
     {
@@ -131,7 +136,7 @@ internal static unsafe class FateMobScanner
     // Candidates are this FATE's mobs nobody has on them yet (a mob fighting an NPC still counts), inside the ring.
     public static FatePullSurvey SurveyPull(uint fateId, Vector3 from, Vector3 ringCentre, float ringRadius, float maxMeters, IReadOnlyDictionary<ulong, long> skipped)
     {
-        var hater = &UIState.Instance()->Hater;
+        SnapshotEnmityList();
         var onPlayer = 0;
         pullCandidates.Clear();
 
@@ -142,7 +147,7 @@ internal static unsafe class FateMobScanner
             {
                 continue;
             }
-            if (IsOnPlayer(hater, npc.EntityId))
+            if (IsOnPlayer(npc.EntityId))
             {
                 onPlayer++;
                 continue;
@@ -171,7 +176,7 @@ internal static unsafe class FateMobScanner
             return new FatePullSurvey(onPlayer, 0, default);
         }
 
-        IBattleNpc? best = null;
+        var bestIndex = 0;
         var bestScore = float.MaxValue;
         var bestDistance = 0f;
         for (var index = 0; index < pullCandidates.Count; index++)
@@ -185,10 +190,11 @@ internal static unsafe class FateMobScanner
             }
             bestScore = score;
             bestDistance = distance;
-            best = candidate;
+            bestIndex = index;
         }
 
-        var next = new FateMobTarget(best!.GameObjectId, best.Position, best.HitboxRadius, bestDistance);
+        var best = pullCandidates[bestIndex];
+        var next = new FateMobTarget(best.GameObjectId, best.Position, best.HitboxRadius, bestDistance);
         return new FatePullSurvey(onPlayer, pullCandidates.Count, next);
     }
 
@@ -198,7 +204,8 @@ internal static unsafe class FateMobScanner
         {
             return FatePullTagState.Gone;
         }
-        if (IsOnPlayer(&UIState.Instance()->Hater, npc.EntityId))
+        SnapshotEnmityList();
+        if (IsOnPlayer(npc.EntityId))
         {
             return FatePullTagState.OnPlayer;
         }
@@ -231,19 +238,19 @@ internal static unsafe class FateMobScanner
         return neighbours;
     }
 
-    private static bool IsOnPlayer(Hater* hater, uint entityId)
+    // Read once per survey, so the per-object check below is a scan of a small id array.
+    private static void SnapshotEnmityList()
     {
-        var haters = hater->Haters;
-        var count = Math.Min(hater->HaterCount, haters.Length);
-        for (var index = 0; index < count; index++)
+        var hater = &UIState.Instance()->Hater;
+        enmityCount = Math.Clamp(hater->HaterCount, 0, EnmityListCapacity);
+        for (var index = 0; index < enmityCount; index++)
         {
-            if (haters[index].EntityId == entityId)
-            {
-                return true;
-            }
+            enmityIds[index] = hater->Haters[index].EntityId;
         }
-        return false;
     }
+
+    private static bool IsOnPlayer(uint entityId)
+        => Array.IndexOf(enmityIds, entityId, 0, enmityCount) >= 0;
 
     private static float FlatDistance(Vector3 a, Vector3 b)
         => Vector2.Distance(new Vector2(a.X, a.Z), new Vector2(b.X, b.Z));

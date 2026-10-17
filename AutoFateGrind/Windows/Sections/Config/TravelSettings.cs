@@ -1,3 +1,4 @@
+using AutoFateGrind.Core.Game.Fates;
 using AutoFateGrind.Core.Game.Player;
 using AutoFateGrind.Core.Localization;
 using AutoFateGrind.Windows.Components;
@@ -17,7 +18,7 @@ internal static class TravelSettings
     private const int PullReachMin = 10;
     private const int PullReachMax = 40;
     private const int PullMaxMobsMin = 3;
-    private const int PullMaxMobsMax = 40;
+    private const int PullMaxMobsMax = FateMobScanner.EnmityListCapacity;
     private const int PullHpMin = 10;
     private const int PullHpMax = 100;
 
