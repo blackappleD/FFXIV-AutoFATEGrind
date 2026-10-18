@@ -111,6 +111,8 @@ internal static class L
         public static readonly LocString ALengthOfTime = new("grind.aLengthOfTime", "A length of time");
         public static readonly LocString ANumberOfLevels = new("grind.aNumberOfLevels", "A number of levels");
         public static readonly LocString Afterwards = new("grind.afterwards", "Afterwards");
+        public static readonly LocString EachZone = new("grind.eachZone", "Each zone");
+        public static readonly LocString ZoneAsManyAsItFinds = new("grind.zoneAsManyAsItFinds", "As many as it finds");
         public static readonly LocString AfterStayShort = new("grind.after.stay.short", "Stay put");
         public static readonly LocString AfterInnShort = new("grind.after.inn.short", "Go to the inn");
         public static readonly LocString AfterLogoutShort = new("grind.after.logout.short", "Log out");
@@ -130,6 +132,7 @@ internal static class L
         public static readonly LocString GoalFates = new("grind.goal.fates", "{0} FATEs");
         public static readonly LocString GoalMinutes = new("grind.goal.minutes", "{0} minutes");
         public static readonly LocString GoalLevels = new("grind.goal.levels", "{0} levels");
+        public static readonly LocString GoalPerZone = new("grind.goal.perZone", "{0} per zone");
         public static readonly LocString GoalYokai = new("grind.goal.yokai", "{0} medals per yo-kai");
         public static readonly LocString GoalSharedFates = new("grind.goal.sharedFates", "every Shared FATE rank is maxed");
         public static readonly LocString GoalAtma = new("grind.goal.atma", "your Atma are collected");
@@ -422,6 +425,14 @@ internal static class L
         public static readonly LocString New = new("changelog.new", "New");
         public static readonly LocPlural Changes = new("changelog.changes", "{0} change", "{0} changes");
 
+        public static readonly LocString[] Release22000 =
+        [
+            new("changelog.r22000.1", "Added Each zone on the Grind page: a number of FATEs for every selected zone, after which the grind moves on and the run ends once each zone has had its share"),
+            new("changelog.r22000.2", "Fixed the trade, repair and break hand-offs starting while the character was still in combat, which left it standing in a follow-up FATE with the rotation off; the grind now plays that FATE first and hands off after it"),
+            new("changelog.r22000.3", "Fixed a trade whose teleport could not be cast skipping its items for the rest of the run; the next FATE retries it once"),
+            new("changelog.r22000.4", "Fixed melee jobs parking on the edge of the FATE ring in escort FATEs such as Mascot March, where the mobs walk out of the ring"),
+        ];
+
         public static readonly LocString[] Release21900 =
         [
             new("changelog.r21900.1", "Fixed the run stopping when gemstones reach the auto-trade threshold instead of going to the trader"),
@@ -622,7 +633,7 @@ internal static class L
         public static readonly LocString AutoPause = new("settings.general.autoPause", "Auto-pause in content");
         public static readonly LocString AutoPauseHelp = new("settings.general.autoPauseHelp", "Pause the run while you are inside a duty, trial, raid, or any other instanced content, then resume it once you are back outside. Your zones, goal, and session stats are kept, and paused time does not count toward a time-based goal.");
         public static readonly LocString AutoResume = new("settings.general.autoResume", "Auto-resume on fault");
-        public static readonly LocString AutoResumeHelp = new("settings.general.autoResumeHelp", "If the grind hits an unrecoverable error and stops, automatically restart it (up to 3 times in 5 minutes) instead of ending the run. Leave off if you want faults to surface.");
+        public static readonly LocString AutoResumeHelp = new("settings.general.autoResumeHelp", "If the grind hits an unrecoverable error and stops, automatically restart it (up to 3 times in a row) instead of ending the run. Leave off if you want faults to surface.");
         public static readonly LocString TravelFatePlay = new("settings.travel.fatePlay", "FATE play");
         public static readonly LocString PullMany = new("settings.travel.pullMany", "Pull as many mobs as possible");
         public static readonly LocString PullManyHelp = new("settings.travel.pullManyHelp", "Tanks only. Instead of fighting whatever walks up, AFG tags every idle mob of the FATE in reach with your ranged attack, then lets BossMod AoE the pack down.");
