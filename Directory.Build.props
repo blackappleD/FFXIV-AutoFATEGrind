@@ -19,7 +19,7 @@
       Fork versioning: upstream's first three segments, then a four-digit fork
       revision starting at 2001 (upstream 2.17.0.0 -> 2.17.0.2001).
     -->
-    <Version>2.19.0.2005</Version>
+    <Version>2.20.0.2001</Version>
     <Authors>XeldarAlz, blackappleD</Authors>
     <Copyright>Copyright (c) XeldarAlz</Copyright>
     <PackageProjectUrl>https://github.com/blackappleD/FFXIV-AutoFATEGrind</PackageProjectUrl>
