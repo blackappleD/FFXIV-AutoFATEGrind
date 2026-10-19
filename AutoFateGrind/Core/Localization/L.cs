@@ -425,6 +425,18 @@ internal static class L
         public static readonly LocString New = new("changelog.new", "New");
         public static readonly LocPlural Changes = new("changelog.changes", "{0} change", "{0} changes");
 
+        public static readonly LocString[] Release22110 =
+        [
+            new("changelog.r22110.1", "Fixed auto-trade failing to buy items that do not stack, such as furnishings: the trader was asked for several in one exchange, which the game refuses, so they are now bought one at a time"),
+        ];
+
+        public static readonly LocString[] Release22100 =
+        [
+            new("changelog.r22100.1", "Added Teleport out when stuck under Settings > General: when the run makes no progress for a set time, such as after landing on water where the yo-kai minion cannot be summoned, the character teleports to the nearest aetheryte and carries on. Contributed by blackappleD"),
+            new("changelog.r22100.2", "Added Pull as many mobs as possible under Settings > Travel: a tank tags every idle mob of the FATE in reach with its ranged attack, then lets BossMod AoE the pack down, with a reach, a mob cap and HP points to stop and resume pulling. Contributed by blackappleD"),
+            new("changelog.r22100.3", "Fixed allied NPCs that fight alongside you in a FATE being counted as FATE mobs, which could walk the character to an ally or keep it searching for mobs that were already gone. Contributed by blackappleD"),
+        ];
+
         public static readonly LocString[] Release22000 =
         [
             new("changelog.r22000.1", "Added Each zone on the Grind page: a number of FATEs for every selected zone, after which the grind moves on and the run ends once each zone has had its share"),
@@ -634,6 +646,10 @@ internal static class L
         public static readonly LocString AutoPauseHelp = new("settings.general.autoPauseHelp", "Pause the run while you are inside a duty, trial, raid, or any other instanced content, then resume it once you are back outside. Your zones, goal, and session stats are kept, and paused time does not count toward a time-based goal.");
         public static readonly LocString AutoResume = new("settings.general.autoResume", "Auto-resume on fault");
         public static readonly LocString AutoResumeHelp = new("settings.general.autoResumeHelp", "If the grind hits an unrecoverable error and stops, automatically restart it (up to 3 times in a row) instead of ending the run. Leave off if you want faults to surface.");
+        public static readonly LocString StuckRescue = new("settings.general.stuckRescue", "Teleport out when stuck");
+        public static readonly LocString StuckRescueHelp = new("settings.general.stuckRescueHelp", "If the run makes no progress for this long (no FATE finished, no zone change, no combat, and the character stays within 15 m of one spot), teleport to the nearest aetheryte in the zone and carry on from there. Catches cases like landing on water, where the yo-kai minion cannot be summoned. After 3 teleports with no FATE finished in between, the run is treated as faulted instead (see Auto-resume on fault).");
+        public static readonly LocString StuckRescueAfter = new("settings.general.stuckRescueAfter", "Stuck after");
+        public static readonly LocString StuckRescueAfterHelp = new("settings.general.stuckRescueAfterHelp", "How long the run must make no progress before AFG teleports out.");
         public static readonly LocString TravelFatePlay = new("settings.travel.fatePlay", "FATE play");
         public static readonly LocString PullMany = new("settings.travel.pullMany", "Pull as many mobs as possible");
         public static readonly LocString PullManyHelp = new("settings.travel.pullManyHelp", "Tanks only. Instead of fighting whatever walks up, AFG tags every idle mob of the FATE in reach with your ranged attack, then lets BossMod AoE the pack down.");
