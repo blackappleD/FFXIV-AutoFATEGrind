@@ -3,8 +3,8 @@
     "Author": "XeldarAlz, blackappleD",
     "Name": "FATE 助手",
     "InternalName": "FateHelper-bld",
-    "AssemblyVersion": "2.21.1.2001",
-    "TestingAssemblyVersion": "2.21.1.2001",
+    "AssemblyVersion": "2.21.2.2001",
+    "TestingAssemblyVersion": "2.21.2.2001",
     "Description": "勾选区域后自动传送、寻找进行中的 FATE 并循环完成，直到达到目标。基于 XeldarAlz 的 Auto FATE Grind 修改的国服维护版。",
     "Punchline": "自动刷 FATE，解放双手。",
     "RepoUrl": "https://github.com/blackappleD/FFXIV-AutoFATEGrind",
@@ -21,9 +21,9 @@
     ],
     "DalamudApiLevel": 15,
     "IconUrl": "https://raw.githubusercontent.com/blackappleD/FFXIV-AutoFATEGrind/master/AutoFateGrind/Images/Icon.png",
-    "DownloadLinkInstall": "https://github.com/blackappleD/FFXIV-AutoFATEGrind/releases/download/v2.21.1.2001/FateHelper-bld.zip",
-    "DownloadLinkUpdate": "https://github.com/blackappleD/FFXIV-AutoFATEGrind/releases/download/v2.21.1.2001/FateHelper-bld.zip",
-    "DownloadLinkTesting": "https://github.com/blackappleD/FFXIV-AutoFATEGrind/releases/download/v2.21.1.2001/FateHelper-bld.zip",
+    "DownloadLinkInstall": "https://github.com/blackappleD/FFXIV-AutoFATEGrind/releases/download/v2.21.2.2001/FateHelper-bld.zip",
+    "DownloadLinkUpdate": "https://github.com/blackappleD/FFXIV-AutoFATEGrind/releases/download/v2.21.2.2001/FateHelper-bld.zip",
+    "DownloadLinkTesting": "https://github.com/blackappleD/FFXIV-AutoFATEGrind/releases/download/v2.21.2.2001/FateHelper-bld.zip",
     "IsTestingExclusive": false,
     "AcceptsFeedback": true
   }
