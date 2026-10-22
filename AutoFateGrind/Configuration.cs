@@ -12,6 +12,8 @@ public sealed class Configuration : IPluginConfiguration
 
     public bool AutoShowOnLogin { get; set; } = false;
 
+    public bool DragWindowFromAnywhere { get; set; } = false;
+
     public string Language { get; set; } = "";
 
     public List<uint> SelectedZones { get; set; } = [];
@@ -126,6 +128,9 @@ public sealed class Configuration : IPluginConfiguration
 
     // What to do once the run's stop condition is met (never fires on manual Stop or a fault).
     public AfterRunAction AfterRun { get; set; } = AfterRunAction.StayLoggedIn;
+
+    // One chat command per line, sent before the after-run action under the same gate (never after Stop or a fault).
+    public string PostRunCommands { get; set; } = string.Empty;
 
     public GemstoneSpendMode SpendMode { get; set; } = GemstoneSpendMode.SpendAll;
     public int SpendGemsAmount { get; set; } = 1000;

@@ -425,6 +425,19 @@ internal static class L
         public static readonly LocString New = new("changelog.new", "New");
         public static readonly LocPlural Changes = new("changelog.changes", "{0} change", "{0} changes");
 
+        public static readonly LocString[] Release22200 =
+        [
+            new("changelog.r22200.1", "Added Chat commands to the settings: list your own commands, one per line (such as /li home or /ays m), and they run when a run finishes on its own, before the after-run action, never after Stop or a failure"),
+            new("changelog.r22200.2", "Fixed the character standing idle beside FATE enemies that spawn outside the FATE area, as in Mascot Murder: when nothing has a target, the nearest FATE enemy is now targeted"),
+            new("changelog.r22200.3", "The main window now moves only when you drag its top bar, so a drag inside it no longer moves it by accident; turn on Drag from anywhere in the settings for the old behaviour"),
+        ];
+
+        public static readonly LocString[] Release22130 =
+        [
+            new("changelog.r22130.1", "Fixed long sessions ending in a crash or a Start button that stops working; moving around no longer sets up new game hooks each time"),
+            new("changelog.r22130.2", "Fixed the gemstone shopping list stopping after the first trader: a trade now buys down the whole list, travelling on to the next trader when an item is only sold elsewhere, within your spend settings"),
+        ];
+
         public static readonly LocString[] Release22120 =
         [
             new("changelog.r22120.1", "Fixed long trips to a FATE in the same zone, such as from the surface of Yak T'el down to Mamook, being taken for stuck after 60 seconds and ending in a teleport to an aetheryte even with Economy mode on; the time limit now starts over while the character keeps getting closer"),
@@ -626,6 +639,8 @@ internal static class L
         public static readonly LocString GeneralWindow = new("settings.general.window", "Window");
         public static readonly LocString OpenOnLogin = new("settings.general.openOnLogin", "Open on login");
         public static readonly LocString OpenOnLoginHelp = new("settings.general.openOnLoginHelp", "Pop the main window automatically the next time you log in.");
+        public static readonly LocString DragAnywhere = new("settings.general.dragAnywhere", "Drag from anywhere");
+        public static readonly LocString DragAnywhereHelp = new("settings.general.dragAnywhereHelp", "Move the window by dragging anywhere inside it. When off, only the top bar moves it.");
         public static readonly LocString LivePopout = new("settings.general.livePopout", "Live FATE tracker popout");
         public static readonly LocString LivePopoutHelp = new("settings.general.livePopoutHelp", "Show the live FATE tracker as a small overlay window so you can keep it visible while the main window is closed.");
         public static readonly LocString NameFormat = new("settings.general.nameFormat", "FATE name format");
@@ -655,6 +670,10 @@ internal static class L
         public static readonly LocString StuckRescueHelp = new("settings.general.stuckRescueHelp", "If the run makes no progress for this long (no FATE finished, no zone change, no combat, and the character stays within 15 m of one spot), teleport to the nearest aetheryte in the zone and carry on from there. Catches cases like landing on water, where the yo-kai minion cannot be summoned. After 3 teleports with no FATE finished in between, the run is treated as faulted instead (see Auto-resume on fault).");
         public static readonly LocString StuckRescueAfter = new("settings.general.stuckRescueAfter", "Stuck after");
         public static readonly LocString StuckRescueAfterHelp = new("settings.general.stuckRescueAfterHelp", "How long the run must make no progress before AFG teleports out.");
+        public static readonly LocString PostRunGroup = new("settings.postRun.group", "Chat commands");
+        public static readonly LocString PostRunLabel = new("settings.postRun.label", "Run when the run finishes");
+        public static readonly LocString PostRunHelp = new("settings.postRun.help", "One command per line, each starting with a slash. They run when a run ends on its own, before the after-run action, and never after Stop or a failure.");
+        public static readonly LocString PostRunCaption = new("settings.postRun.caption", "Lines that do not start with a slash are skipped, so nothing is ever said in chat. Try /li home to head home or /ays m to hand off to AutoRetainer.");
         public static readonly LocString TravelFatePlay = new("settings.travel.fatePlay", "FATE play");
         public static readonly LocString PullMany = new("settings.travel.pullMany", "Pull as many mobs as possible");
         public static readonly LocString PullManyHelp = new("settings.travel.pullManyHelp", "Tanks only. Instead of fighting whatever walks up, AFG tags every idle mob of the FATE in reach with your ranged attack, then lets BossMod AoE the pack down.");
@@ -787,7 +806,7 @@ internal static class L
         public static readonly LocString TraderMissing = new("settings.gems.traderMissing", "No known Bicolor trader sells {0}. Pick another item.");
         public static readonly LocString AlreadyListed = new("settings.gems.alreadyListed", "Already on the list.");
         public static readonly LocString ShoppingList = new("settings.gems.list", "Shopping list");
-        public static readonly LocString ShoppingListHelp = new("settings.gems.listHelp", "Bought from the top down. Each trade goes to a trader for the first item still needed and also buys the items below it that the same trader sells. Collectibles such as minions and orchestrion rolls are bought once and skipped after you own or learn them.");
+        public static readonly LocString ShoppingListHelp = new("settings.gems.listHelp", "Bought from the top down. Each trade goes to a trader for the first item still needed and also buys the items below it that the same trader sells, then does the same at the trader for the next item still needed until nothing more on the list can be bought. Collectibles such as minions and orchestrion rolls are bought once and skipped after you own or learn them.");
         public static readonly LocString ShoppingListEmpty = new("settings.gems.listEmpty", "The list is empty, so auto-trade has nothing to buy. Add an item above.");
         public static readonly LocString UnknownTradeItem = new("settings.gems.unknownItem", "Unknown item ({0})");
         public static readonly LocString StatusLearned = new("settings.gems.statusLearned", "Learned");

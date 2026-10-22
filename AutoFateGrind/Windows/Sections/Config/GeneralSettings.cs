@@ -13,6 +13,7 @@ internal static class GeneralSettings
         DrawLanguageGroup(cfg);
         DrawWindowGroup(cfg);
         DrawRunGroup(cfg);
+        PostRunSettings.Draw(cfg);
     }
 
     private static void DrawLanguageGroup(Configuration cfg)
@@ -33,6 +34,12 @@ internal static class GeneralSettings
             Loc.T(L.Settings.OpenOnLoginHelp),
             SettingsControls.ToggleWidth,
             () => SettingsControls.DrawToggle(cfg, () => cfg.AutoShowOnLogin, v => cfg.AutoShowOnLogin = v, "##gen_autoshow"),
+            SettingsRow.ToggleHeight);
+
+        SettingsRow.Draw(Loc.T(L.Settings.DragAnywhere),
+            Loc.T(L.Settings.DragAnywhereHelp),
+            SettingsControls.ToggleWidth,
+            () => SettingsControls.DrawToggle(cfg, () => cfg.DragWindowFromAnywhere, v => cfg.DragWindowFromAnywhere = v, "##gen_draganywhere"),
             SettingsRow.ToggleHeight);
 
         SettingsRow.Draw(Loc.T(L.Settings.LivePopout),
